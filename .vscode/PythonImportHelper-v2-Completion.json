@@ -1,0 +1,54 @@
+[
+    {
+        "label": "Benchmarking",
+        "importPath": "benchmarking",
+        "description": "benchmarking",
+        "isExtraImport": true,
+        "detail": "benchmarking",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "MetodosOrdenamiento",
+        "importPath": "metodos_ordenamiento",
+        "description": "metodos_ordenamiento",
+        "isExtraImport": true,
+        "detail": "metodos_ordenamiento",
+        "documentation": {}
+    },
+    {
+        "label": "Benchmarking",
+        "kind": 6,
+        "importPath": "src_phyton.benchmarking",
+        "description": "src_phyton.benchmarking",
+        "peekOfCode": "class Benchmarking:\n    def __init__(self):\n        print('Bench inicializado')\n        self.mOrdenamiento=MetodosOrdenamiento()\n        arreglo=self.build_arreglo(100000)\n        tarea=lambda: self.mOrdenamiento.sortByBubble(arreglo)\n        tiempoMillis=self.contar_con_current_time_milles(tarea)\n        tiempoNano=self.contar_con_nano_time(tarea)\n        print(f' Tiempo en millis {tiempoMillis}')\n        print(f' Tiempo en nano  {tiempoNano}')",
+        "detail": "src_phyton.benchmarking",
+        "documentation": {}
+    },
+    {
+        "label": "MetodosOrdenamiento",
+        "kind": 6,
+        "importPath": "src_phyton.metodos_ordenamiento",
+        "description": "src_phyton.metodos_ordenamiento",
+        "peekOfCode": "class MetodosOrdenamiento:\n    def sortByBubble(self,arreglo):\n        arreglo=arreglo.copy()\n        n=len(arreglo)\n        for i in range(n):\n            for j in range(i+1,n):\n                if arreglo[i]>arreglo[j]:\n                    arreglo[i],arreglo[j]=arreglo[j],arreglo[j]\n        return arreglo",
+        "detail": "src_phyton.metodos_ordenamiento",
+        "documentation": {}
+    }
+]
