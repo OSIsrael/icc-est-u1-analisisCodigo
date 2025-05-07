@@ -2,6 +2,7 @@ from benchmarking import Benchmarking
 import matplotlib
 from metodos_ordenamiento import MetodosOrdenamiento
 import matplotlib.pyplot as plt
+from datetime import date, time, datetime
 
 if __name__ == "__main__":
     print("Funciona")
@@ -34,14 +35,17 @@ if __name__ == "__main__":
     for tam, nombre, tiempo in resultados:
         tiempos_by_metodo[nombre].append(tiempo)  
 
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(10, 6),num="ISRAEL ORELLANA")
 
     for nombre, tiempo in tiempos_by_metodo.items():
         plt.plot(tamanio, tiempo, label=nombre, marker='o')
-
+    fechaac=datetime.now()
+    fecha=fechaac.strftime("%Y-%m-%d %H:%M:%S" )
     plt.xlabel("Tamaño")
     plt.ylabel("Tiempo")
-    plt.title("Comparativa metodos")
+    
+    plt.title(f"Comparativa metodos \n Israel Orellana - {fecha}")
     plt.legend()
     plt.grid(True)
     plt.show()
+    
