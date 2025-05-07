@@ -8,6 +8,15 @@
         "documentation": {}
     },
     {
+        "label": "matplotlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib",
+        "description": "matplotlib",
+        "detail": "matplotlib",
+        "documentation": {}
+    },
+    {
         "label": "MetodosOrdenamiento",
         "importPath": "metodos_ordenamiento",
         "description": "metodos_ordenamiento",
@@ -21,6 +30,15 @@
         "description": "metodos_ordenamiento",
         "isExtraImport": true,
         "detail": "metodos_ordenamiento",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
         "documentation": {}
     },
     {

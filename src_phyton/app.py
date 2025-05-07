@@ -1,24 +1,47 @@
 from benchmarking import Benchmarking
+import matplotlib
 from metodos_ordenamiento import MetodosOrdenamiento
-if __name__=="__main__":
+import matplotlib.pyplot as plt
+
+if __name__ == "__main__":
     print("Funciona")
-    #Instancias
-    benchmark=Benchmarking()
-    metodos=MetodosOrdenamiento()
+    # Instancias
+    benchmark = Benchmarking()
+    metodos = MetodosOrdenamiento()
 
-    tamanio=1000000
-    arreglo=benchmark.build_arreglo(tamanio)
+    tamanio = [500, 1000, 2000]
+    resultados = []
+    for tam in tamanio:
+        arreglo = benchmark.build_arreglo(tam)
+        metodos_a_probar = {
+            "burbuja": metodos.sortByBubble,
+            "seleccion": metodos.sortBySelection
+        }
 
-    metodos={
-            "burbuja":metodos.sortByBubble,
-            "seleccion":metodos.sortBySelection
-            }
-    resultados=[]
-    for nombre,metodo in metodos.items():
-        tiempo=benchmark.medir_tiempo(metodo,arreglo)
-        tuplaResultado=(tamanio,nombre,tiempo)
-        resultados.append(tuplaResultado)
+        for nombre, metodo in metodos_a_probar.items():
+            tiempo = benchmark.medir_tiempo(metodo, arreglo.copy())
+            tuplaResultado = (tam, nombre, tiempo)
+            resultados.append(tuplaResultado)
+
     for resultado in resultados:
-        tamanio,nombre,tiempo=resultado
-        print(f"Tamano: {tamanio}, Metodo: {nombre}, Tiempo: {tiempo:.6f}")
+        tam, nombre, tiempo = resultado
+        print(f"Tamaño: {tam}, Método: {nombre}, Tiempo: {tiempo:.6f}")
 
+    tiempos_by_metodo = {
+        "burbuja": [],
+        "seleccion": []
+    }
+    for tam, nombre, tiempo in resultados:
+        tiempos_by_metodo[nombre].append(tiempo)  
+
+    plt.figure(figsize=(10, 6))
+
+    for nombre, tiempo in tiempos_by_metodo.items():
+        plt.plot(tamanio, tiempo, label=nombre, marker='o')
+
+    plt.xlabel("Tamaño")
+    plt.ylabel("Tiempo")
+    plt.title("Comparativa metodos")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
